@@ -1,0 +1,21 @@
+<app-todo-form
+  [todos]="todos"
+  (addTodo)="handleAddTodo($event)"
+></app-todo-form>
+<ul class="flex flex-col gap-2">
+  <!-- <li
+    (click)="toggleDone(todo)"
+    class="p-2 cursor-pointer border-b border-gray-100 capitalize {{
+      todo.isDone ? 'line-through' : ''
+    }}"
+    *ngFor="let todo of todos; let i = index"
+  >
+    {{ i + 1 }} {{ todo.content }}
+  </li> -->
+  <app-todo
+    (deleteTodo)="removeTodo($event)"
+    (toggleIsDone)="toggleDone($event)"
+    [todo]="todo"
+    *ngFor="let todo of todos"
+  ></app-todo>
+</ul>
